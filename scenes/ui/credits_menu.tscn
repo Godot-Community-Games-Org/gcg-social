@@ -101,7 +101,7 @@ text = "GitHub"
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 
-[node name="LinkButton" type="LinkButton" parent="Credits"]
+[node name="SourceCodes" type="LinkButton" parent="Credits"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "See Source Code"
