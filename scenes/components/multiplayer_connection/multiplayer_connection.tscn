@@ -80,6 +80,7 @@ scroll_fit_content_height = true
 
 [node name="Buttons" type="HBoxContainer" parent="Connect"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="ConnectBtn" type="Button" parent="Connect/Buttons"]
 layout_mode = 2
