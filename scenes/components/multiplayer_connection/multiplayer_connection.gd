@@ -14,12 +14,17 @@ const PORT: int = 9009
 @onready var host_input: TextEdit = $Connect/HostInput
 @onready var connect_btn: Button = $Connect/ConnectBtn
 @onready var disconnect_btn: Button = $DisconnectBtn
+@onready var main_menu: Control = $"../MainMenu"
+@onready var server_label: Label = $"../ServerLabel"
 
 func _ready() -> void:
 	update_connection_buttons()
 	if OS.has_feature("is_server"):
 		setup_server_connection()
 		$Connect.hide()
+		$Background.hide()
+		main_menu.hide()
+		server_label.show()
 	else:
 		setup_client_connection()
 
@@ -69,9 +74,10 @@ func update_connection_buttons() -> void:
 		disconnect_btn.disabled = true
 		disconnect_btn.hide()
 		return
-	
+
 	if multiplayer_peer.get_connection_status() == multiplayer_peer.CONNECTION_DISCONNECTED:
 		$Connect.show()
+		$Background.show()
 		connect_btn.disabled = false
 		disconnect_btn.disabled = true
 	if multiplayer_peer.get_connection_status() == multiplayer_peer.CONNECTION_CONNECTING:
@@ -79,6 +85,7 @@ func update_connection_buttons() -> void:
 		disconnect_btn.disabled = true
 	if multiplayer_peer.get_connection_status() == multiplayer_peer.CONNECTION_CONNECTED:
 		$Connect.hide()
+		$Background.hide()
 		connect_btn.disabled = true
 		disconnect_btn.disabled = false
 
@@ -92,4 +99,5 @@ func _on_connect_btn_pressed() -> void:
 ## [client only] Called on the client when the disconnect button is pressed
 func _on_disconnect_btn_pressed() -> void:
 	multiplayer_peer.close()
+	main_menu.show()
 	update_connection_buttons()
