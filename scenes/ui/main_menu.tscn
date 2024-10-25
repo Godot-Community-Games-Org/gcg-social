@@ -1,14 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwajhddpq8f51"]
+[gd_scene load_steps=5 format=3 uid="uid://dwajhddpq8f51"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_q4mfh"]
-[ext_resource type="FontFile" uid="uid://crk5y1l3oi0qd" path="res://assets/fonts/nunito/Nunito.ttf" id="2_hif0k"]
+[ext_resource type="LabelSettings" uid="uid://d4anjv50q126s" path="res://assets/labels/title.tres" id="2_4bfu7"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8u72y"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_xq6fe"]
-font = ExtResource("2_hif0k")
-font_size = 128
-outline_size = 9
 
 [sub_resource type="GDScript" id="GDScript_08a3e"]
 resource_name = "Exit"
@@ -54,7 +49,7 @@ grow_vertical = 2
 [node name="Title" type="Label" parent="Content"]
 layout_mode = 2
 text = "gcg-social"
-label_settings = SubResource("LabelSettings_xq6fe")
+label_settings = ExtResource("2_4bfu7")
 horizontal_alignment = 1
 uppercase = true
 

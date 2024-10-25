@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnmgufd7m2y27"]
+[gd_scene load_steps=4 format=3 uid="uid://bnmgufd7m2y27"]
 
 [ext_resource type="Script" path="res://scenes/ui/credits_menu.gd" id="1_fdeba"]
+[ext_resource type="LabelSettings" uid="uid://pbkkshamsp7j" path="res://assets/labels/menu_headers.tres" id="2_8j8hf"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8u72y"]
 
@@ -22,24 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("PlaceholderTexture2D_8u72y")
 
-[node name="CREDITS_TEST" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = -11.5
-offset_right = 52.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "CREDITS
-Todo:
-- Link to 3rd Party Licenses
-- Link to github contributors list"
-
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 3
@@ -52,5 +35,31 @@ offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Back"
+
+[node name="Credits" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -75.0
+offset_right = 122.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Credits"]
+layout_mode = 2
+text = "Credits"
+label_settings = ExtResource("2_8j8hf")
+horizontal_alignment = 1
+
+[node name="Body" type="Label" parent="Credits"]
+layout_mode = 2
+text = "Todo:
+- Link to 3rd Party Licenses
+- Link to github contributors list"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

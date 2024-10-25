@@ -11,11 +11,12 @@ var multiplayer_peer = ENetMultiplayerPeer.new()
 var url: String = "127.0.0.1"
 const PORT: int = 9009
 
-@onready var host_input: TextEdit = $Connect/HostInput
-@onready var connect_btn: Button = $Connect/ConnectBtn
+@onready var host_input: TextEdit = $Connect/Details/HostInput
+@onready var connect_btn: Button = $Connect/Buttons/ConnectBtn
 @onready var disconnect_btn: Button = $DisconnectBtn
 @onready var main_menu: Control = $"../MainMenu"
 @onready var server_label: Label = $"../ServerLabel"
+@onready var back: Button = $Connect/Buttons/Back
 
 func _ready() -> void:
 	update_connection_buttons()
@@ -78,12 +79,15 @@ func update_connection_buttons() -> void:
 	if multiplayer_peer.get_connection_status() == multiplayer_peer.CONNECTION_DISCONNECTED:
 		$Connect.show()
 		$Background.show()
+		back.show()
 		connect_btn.disabled = false
 		disconnect_btn.disabled = true
 	if multiplayer_peer.get_connection_status() == multiplayer_peer.CONNECTION_CONNECTING:
+		back.hide()
 		connect_btn.disabled = true
 		disconnect_btn.disabled = true
 	if multiplayer_peer.get_connection_status() == multiplayer_peer.CONNECTION_CONNECTED:
+		back.hide()
 		$Connect.hide()
 		$Background.hide()
 		connect_btn.disabled = true
@@ -101,3 +105,8 @@ func _on_disconnect_btn_pressed() -> void:
 	multiplayer_peer.close()
 	main_menu.show()
 	update_connection_buttons()
+
+
+func _on_back_pressed() -> void:
+	main_menu.show()
+	pass
