@@ -30,8 +30,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -45.0
-offset_top = -31.0
+offset_left = -56.0
+offset_top = -48.0
+offset_right = -11.0
+offset_bottom = -17.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Back"
@@ -56,10 +58,53 @@ text = "Credits"
 label_settings = ExtResource("2_8j8hf")
 horizontal_alignment = 1
 
-[node name="Body" type="Label" parent="Credits"]
+[node name="Spacer" type="Control" parent="Credits"]
+custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
-text = "Todo:
-- Link to 3rd Party Licenses
-- Link to github contributors list"
+
+[node name="ContributorsLink" type="LinkButton" parent="Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "See List of Contributors"
+underline = 1
+uri = "https://github.com/Godot-Community-Games-Org/gcg-social/graphs/contributors"
+
+[node name="3rdPartyLicenseLink" type="LinkButton" parent="Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "3rd Party License Information"
+underline = 1
+uri = "https://github.com/Godot-Community-Games-Org/gcg-social/blob/main/THIRD_PARTY.md"
+
+[node name="Spacer2" type="Control" parent="Credits"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+
+[node name="Socials" type="Label" parent="Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Socials:"
+
+[node name="SocialLinks" type="HBoxContainer" parent="Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Discord" type="LinkButton" parent="Credits/SocialLinks"]
+layout_mode = 2
+text = "Discord"
+
+[node name="GitHub" type="LinkButton" parent="Credits/SocialLinks"]
+layout_mode = 2
+text = "GitHub"
+
+[node name="Spacer3" type="Control" parent="Credits"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+
+[node name="LinkButton" type="LinkButton" parent="Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "See Source Code"
+uri = "https://github.com/Godot-Community-Games-Org/gcg-social"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
